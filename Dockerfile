@@ -14,8 +14,12 @@ RUN curl -L -o /tmp/kafka.tar.gz "http://mirrors.ibiblio.org/apache/kafka/${KAFK
 	rm /tmp/kafka.tar.gz
 
 ADD start-kafka.sh /usr/bin/start-kafka.sh
+ADD server.properties /opt/kafka_2.10-${KAFKA_VERSION}/config/server.properties
 
 EXPOSE 9092
+
+# settings as per https://kafka.apache.org/08/ops.html
+ENV KAFKA_HEAP_OPTS -Xms3072m -Xmx3072m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:CMSInitiatingOccupancyFraction=30 
 
 CMD start-kafka.sh 
 
