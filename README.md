@@ -17,10 +17,9 @@ If you want to customze any Kafka parameters, simply add them as environment var
 **Examples:**
 
 To set this property | Use this env variable 
----- | ----:
+---- | ----
 log.retention.hours | KAFKA_LOG_RETENTION_HOURS
 message.max.bytes | KAFKA_MESSAGE_MAX_BYTES
 zookeeper.connect | KAFKA_ZOOKEEPER_CONNECT
 
  
-
